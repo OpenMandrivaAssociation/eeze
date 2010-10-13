@@ -58,10 +58,8 @@ complexity of managing devices.
 %package -n %libnamedev
 Summary: Eeze Library headers and development libraries
 Group: System/Libraries
-Requires: %{libname} = %{epoch}:%{version}
-Provides: lib%{name}-devel = %{epoch}:%{version}-%{release}
-Provides: %{name}-devel = %{epoch}:%{version}-%{release}
-Obsoletes: %mklibname efreet 0 -d
+Requires: %{libname} = %{version}
+Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %libnamedev
 Eeze is a library for manipulating devices through udev with a simple and fast
