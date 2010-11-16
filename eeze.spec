@@ -1,6 +1,6 @@
 %define	name eeze
 %define	version 1.0.0
-%define release %mkrel -c beta 1
+%define release %mkrel -c beta2 1
 
 %define major 1
 %define libname %mklibname %{name} %major
@@ -13,7 +13,7 @@ Release: 	%{release}
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL: 		http://www.enlightenment.org/
-Source: 	http://download.enlightenment.org/releases/%{name}-%{version}.beta.tar.bz2
+Source: 	http://download.enlightenment.org/releases/%{name}-%{version}.beta2.tar.bz2
 Patch0:		eeze-1.0.0.beta-link.patch
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires: 	ecore-devel >= 1.0.0
@@ -77,7 +77,7 @@ function, as one of the primary focuses of the library is to reduce the
 complexity of managing devices.
 
 %prep
-%setup -qn %{name}-%{version}.beta
+%setup -qn %{name}-%{version}.beta2
 %patch0 -p0
 
 %build
