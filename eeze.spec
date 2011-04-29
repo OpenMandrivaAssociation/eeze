@@ -1,5 +1,5 @@
 %define	name eeze
-%define	version 1.0.0
+%define	version 1.0.1
 %define release %mkrel 1
 
 %define major 1
