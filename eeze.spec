@@ -23,7 +23,7 @@
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
-Summary:	Eeze is a library for easily manipulating devices.
+Summary:	Eeze is a library for easily manipulating devices
 Name:		eeze
 %if %snapshot
 Version:	1.1.99.%{svnrev}
