@@ -85,7 +85,7 @@ complexity of managing devices.
 
 %package -n	%{develname}
 Summary:	Headers and development libraries from %{name}
-Group:		Dynamic libraries from %{name} 
+Group:		System/Libraries
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
