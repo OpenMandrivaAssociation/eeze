@@ -11,7 +11,6 @@
 #cd ..; \
 #tar -Jcf eeze-$PKG_VERSION.tar.xz eeze/ --exclude .svn --exclude .*ignore
 
-
 %define snapshot 1
 
 %if %snapshot
@@ -27,7 +26,7 @@ Summary:	Eeze is a library for easily manipulating devices
 Name:		eeze
 %if %snapshot
 Version:	1.1.99.%{svnrev}
-Release:	0.%{svndate}.1
+Release:	0.%{svndate}.2
 %else
 Version:	1.1.0
 Release:	1
@@ -105,7 +104,9 @@ NOCONFIGURE=yes ./autogen.sh
 %endif
 
 %configure2_5x \
-	--disable-static
+	--disable-static \
+	--with-mount \
+	--with-umount 
 %make
 
 %install
