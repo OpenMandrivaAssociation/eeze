@@ -11,7 +11,7 @@
 #cd ..; \
 #tar -Jcf eeze-$PKG_VERSION.tar.xz eeze/ --exclude .svn --exclude .*ignore
 
-%define snapshot 1
+%define snapshot 0
 
 %if %snapshot
 %define	svndate	20120103
@@ -28,7 +28,7 @@ Name:		eeze
 Version:	1.1.99.%{svnrev}
 Release:	0.%{svndate}.2
 %else
-Version:	1.1.0
+Version:	1.2.0
 Release:	1
 %endif
 License: LGPLv2+
@@ -37,12 +37,12 @@ URL: 		http://www.enlightenment.org/
 %if %snapshot
 Source0:	%{name}-%{version}.tar.xz
 %else
-Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
 %endif
 
 BuildRequires:	gettext-devel
-BuildRequires:	pkgconfig(ecore) >= 1.0.0
-BuildRequires:	pkgconfig(edje) >= 1.0.0
+BuildRequires:	pkgconfig(ecore) >= 1.2.1
+BuildRequires:	pkgconfig(edje) >= 1.2.1
 BuildRequires:	pkgconfig(libudev)
 
 %description
