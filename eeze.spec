@@ -13,12 +13,12 @@
 
 %define snapshot 0
 
-%if %snapshot
+%if %{snapshot}
 %define	svndate	20120103
 %define	svnrev	66151
 %endif
 
-%define	major	1
+%define major	1
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
@@ -28,7 +28,7 @@ Name:		eeze
 Version:	1.1.99.%{svnrev}
 Release:	0.%{svndate}.2
 %else
-Version:	1.2.0
+Version:	1.7.3
 Release:	1
 %endif
 License: LGPLv2+
@@ -41,9 +41,13 @@ Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
 %endif
 
 BuildRequires:	gettext-devel
-BuildRequires:	pkgconfig(ecore) >= 1.2.1
-BuildRequires:	pkgconfig(edje) >= 1.2.1
+BuildRequires:	pkgconfig(ecore) >= 1.7.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.7.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.7.0
+BuildRequires:	pkgconfig(edje) >= 1.7.0
+BuildRequires:	pkgconfig(eet) >= 1.7.0
 BuildRequires:	pkgconfig(libudev)
+BuildRequires:	pkgconfig(mount)
 
 %description
 Eeze is a library for manipulating devices through udev with a simple and fast
@@ -99,18 +103,22 @@ Provides:	%{name}-devel = %{version}-%{release}
 %endif
 
 %build
-%if %snapshot
+%if %{snapshot}
 NOCONFIGURE=yes ./autogen.sh
 %endif
 
 %configure2_5x \
 	--disable-static \
 	--with-mount \
-	--with-umount 
+	--with-umount \
+	--with-eject
 %make
 
 %install
 %makeinstall_std
+
+%files
+%{_bindir}/eeze*
 
 %files -n %{libname}
 %{_libdir}/libeeze.so.%{major}*
@@ -119,4 +127,42 @@ NOCONFIGURE=yes ./autogen.sh
 %{_includedir}/%{name}*
 %{_libdir}/libeeze.so
 %{_libdir}/pkgconfig/eeze.pc
+
+
+
+%changelog
+* Wed Jan 11 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.1.99.66151-0.20120103.2
++ Revision: 759676
+- build with mount umount
+
+* Thu Jan 05 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.1.99.66151-0.20120103.1
++ Revision: 757949
+- fixed group
+- removed . from end of summary
+- new version/snapshot 1.1.99.66151
+- merge spec with UnityLinux
+- cleaned up spec
+- disabled static build
+- no more binary
+
+* Fri Apr 29 2011 Crispin Boylan <crisb@mandriva.org> 1.0.1-1
++ Revision: 660721
+- New release
+
+* Sat Jan 29 2011 Funda Wang <fwang@mandriva.org> 1.0.0-1
++ Revision: 633927
+- 1.0.0 final
+
+* Sat Dec 18 2010 Funda Wang <fwang@mandriva.org> 1.0.0-0.beta3.1mdv2011.0
++ Revision: 622799
+- 1.0 beta3
+
+* Tue Nov 16 2010 Funda Wang <fwang@mandriva.org> 1.0.0-0.beta2.1mdv2011.0
++ Revision: 597953
+- 1.0.0 beta2
+
+* Wed Oct 13 2010 Funda Wang <fwang@mandriva.org> 1.0.0-0.beta.1mdv2011.0
++ Revision: 585315
+- fix requires
+- import eeze
 
