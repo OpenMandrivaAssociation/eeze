@@ -4,7 +4,7 @@
 
 Summary:	Eeze is a library for easily manipulating devices
 Name:		eeze
-Version:	1.7.3
+Version:	1.7.5
 Release:	1
 License:	LGPLv2+
 Group: 		Graphical desktop/Enlightenment
