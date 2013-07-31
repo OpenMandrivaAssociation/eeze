@@ -4,13 +4,12 @@
 
 Summary:	Library for easily manipulating devices
 Name:		eeze
-Version:	1.7.7
-Release:	2
+Version:	1.7.8
+Release:	1
 License:	LGPLv2+
 Group:		Graphical desktop/Enlightenment
-URL:		http://www.enlightenment.org/
+Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
-
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(ecore) >= 1.7.0
 BuildRequires:	pkgconfig(ecore-con) >= 1.7.0
