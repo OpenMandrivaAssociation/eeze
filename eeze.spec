@@ -5,7 +5,7 @@
 Summary:	Library for easily manipulating devices
 Name:		eeze
 Version:	1.7.8
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
